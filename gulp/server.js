@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 
-gulp.task('js-watch', ['js'], browserSync.reload);
+gulp.task('js-watch', ['html'], browserSync.reload);
 gulp.task('scss-watch', ['sass'], browserSync.reload);
 
 gulp.task('serve', ['js', 'sass', 'html'], function () {
