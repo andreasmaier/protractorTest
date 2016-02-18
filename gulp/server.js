@@ -10,6 +10,10 @@ gulp.task('html-watch', ['html'], function () {
 gulp.task('sass-watch', ['sass'], function () {
     browserSync.reload();
 });
+gulp.task('template-watch', ['copy-templates'], function () {
+    browserSync.reload();
+});
+
 
 gulp.task('serve', ['html'], function () {
     browserSync.init({
@@ -22,4 +26,5 @@ gulp.task('serve', ['html'], function () {
     gulp.watch("src/js/**/*.js", ['js-watch']);
     gulp.watch("src/scss/*.scss", ['sass-watch']);
     gulp.watch("src/index.html", ['html-watch']);
+    gulp.watch("src/js/**/*.html", ['template-watch']);
 });
