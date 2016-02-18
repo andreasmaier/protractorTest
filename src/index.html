@@ -6,10 +6,18 @@
 
     <link rel="stylesheet" type="text/css" href="./css/main.css">
 
+    <!-- bower:css -->
+    <!-- endinject -->
+
+    <!-- bower:js -->
+    <!-- endinject -->
+
     <!-- inject:js -->
     <!-- endinject -->
 </head>
-<body>
-    <div class="home-test">Hey wazzup</div>
+<body ng-app="todo">
+    <div ng-controller="HomeController">
+        <div class="home-test">{{message}}</div>
+    </div>
 </body>
 </html>
