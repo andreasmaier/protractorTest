@@ -8,7 +8,7 @@ var notify = require("gulp-notify");
 gulp.task('html', ['js', 'sass', 'copy-bower-sources'], function () {
     return gulp.src('./src/index.html')
         .pipe(
-            inject(gulp.src(['./www/lib/*'], {read: false}), {
+            inject(gulp.src(bowerFiles(), {read: false}), {
                 name: 'bower',
                 ignorePath: '/www/',
                 addRootSlash: false
@@ -28,5 +28,5 @@ gulp.task('html', ['js', 'sass', 'copy-bower-sources'], function () {
 
 gulp.task('copy-bower-sources', function () {
     return gulp.src(bowerFiles())
-        .pipe(gulp.dest('www/lib'));
+        .pipe(gulp.dest('www/bower_components'));
 });
