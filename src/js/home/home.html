@@ -8,7 +8,7 @@
 
     <div class="todos">
         <div class="todo-item" ng-repeat="todo in todos">
-            {{todo.name}}
+            <div>{{todo.name}}</div><button class="delete-button" ng-click="deleteTodo(todo);">Delete Me</button>
         </div>
     </div>
 </div>

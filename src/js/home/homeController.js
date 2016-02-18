@@ -9,5 +9,13 @@ angular.module('todo.home').controller('HomeController', function ($scope) {
         });
 
         $scope.newTodo = '';
-    }
+    };
+
+    $scope.deleteTodo = function (todo) {
+        var index = $scope.todos.findIndex(function (elm) {
+            return elm.name == todo.name;
+        });
+
+        $scope.todos.splice(index, 1);
+    };
 });

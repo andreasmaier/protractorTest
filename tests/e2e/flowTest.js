@@ -9,6 +9,8 @@ describe('CashLoad Flow', function () {
     userSeesHomeScrees();
     userSeesNoTodos();
     userAddsNewTodo();
+    userAddsAnotherTodo();
+    userDeletesCleanUpTodo();
 
     function userSeesHomeScrees() {
         it('takes the user to the home page by default', function () {
@@ -35,7 +37,28 @@ describe('CashLoad Flow', function () {
         });
 
         it('show the new Todo in the list', function () {
-            expect(element.all(by.repeater('todo in todos')).get(0).getText()).toBe('Clean up!');
+            expect(element.all(by.repeater('todo in todos')).get(0).getText()).toContain('Clean up!');
+        });
+    }
+
+    function userAddsAnotherTodo() {
+        it('shows the todo in the list', function () {
+            element(by.model('newTodo')).sendKeys('Do fun stuff!');
+            element(by.css('.add-todo-button')).click();
+
+            expect(element.all(by.repeater('todo in todos')).count()).toBe(2);
+        });
+    }
+
+    function userDeletesCleanUpTodo() {
+        it('shows the todo in the list', function () {
+            element.all(by.repeater('todo in todos')).get(0).$('.delete-button').click();
+
+            expect(element.all(by.repeater('todo in todos')).count()).toBe(1);
+        });
+
+        it('shows the correct remaining item', function () {
+            expect(element.all(by.repeater('todo in todos')).get(0).getText()).toContain('Do fun stuff!');
         });
     }
 });
