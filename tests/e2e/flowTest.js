@@ -7,10 +7,19 @@ describe('CashLoad Flow', function () {
     });
 
     userSeesHomeScrees();
+    userSeesNoTodos();
 
     function userSeesHomeScrees() {
         it('takes the user to the home page by default', function () {
             expect($('.home-header').getText()).toContain('These are your Todos:');
+        });
+    }
+
+    function userSeesNoTodos() {
+        it('does not have any Todos by default', function () {
+            element.all(by.repeater('todo in todos')).count().then(function(count) {
+                expect(count).toBe(0);
+            });
         });
     }
 });
