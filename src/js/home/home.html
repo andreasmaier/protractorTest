@@ -1,9 +1,14 @@
 <div ng-controller="HomeController">
     <div class="home-header home-test">{{message}}</div>
 
+    <form>
+        <input type="text" ng-model="newTodo" placeholder="Add Todo..." />
+        <input class="add-todo-button" type="submit" ng-click="addTodo();" />
+    </form>
+
     <div class="todos">
         <div class="todo-item" ng-repeat="todo in todos">
-
+            {{todo.name}}
         </div>
     </div>
 </div>
