@@ -1,4 +1,4 @@
-var baseUrl = "http://localhost:8899";
+var baseUrl = "http://localhost:8888";
 
 describe('CashLoad Flow', function () {
     it('test setup', function () {
