@@ -19,4 +19,4 @@ TEST_RESULT=$?
 curl -s -L http://localhost:4444/selenium-server/driver?cmd=shutDownSeleniumServer
 kill $SERVER_PID
 
-EXIT $TEST_RESULT
+exit $TEST_RESULT
