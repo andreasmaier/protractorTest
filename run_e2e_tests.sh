@@ -1,3 +1,5 @@
+#!/bin/bash
+
 webdriver-manager start > /dev/null 2>&1 &
 
 WEBDRIVER_PID=$!
@@ -12,5 +14,9 @@ echo 'Selenium-RC server is open for business on port 4444!'
 
 protractor protractor.conf.js
 
+TEST_RESULT=$?
+
 curl -s -L http://localhost:4444/selenium-server/driver?cmd=shutDownSeleniumServer
 kill $SERVER_PID
+
+EXIT $TEST_RESULT
