@@ -6,10 +6,10 @@ exports.config = {
     ],
     seleniumArgs: ['-browserTimeout=60'],
     capabilities: {
-        'browserName': 'chrome',
-        'chromeOptions': {
-           args: ['--disable-web-security']
-        }
+        'browserName': 'firefox'
+        //'chromeOptions': {
+        //   args: ['--disable-web-security']
+        //}
     },
     allScriptsTimeout: 15000,
     jasmineNodeOpts: {
